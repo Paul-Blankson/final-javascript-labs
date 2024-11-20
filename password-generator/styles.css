@@ -1,0 +1,81 @@
+:root {
+  --color-bg-veryDarkGrey: #18171F;
+  --color-bg-darkGrey: #24232C;
+  --color-bg-grey: #817D92;
+  --color-almost-white: #E6E5EA;
+  --color-neon-green: #A4FFAF;
+  --color-yellow: #F8CD65;
+  --color-orange: #FB7C58;
+  --color-red: #F64A4A;
+}
+
+@font-face {
+    font-family: jetbrains;
+    src: url('./assets/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #08070B;
+    color: var(--color-almost-white);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Password Block */
+.password {
+    background-color: #08070B;
+    padding: 1rem 3.9rem;
+    width: 375px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.password__title {
+    text-align: center;
+    color: var(--color-bg-grey);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.password__display {
+    position: relative;
+    background-color: var(--color-bg-darkGrey);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password__input {
+    background: transparent;
+    border: none;
+    color: var(--color-almost-white);
+    font-family: 'jetbrains';
+    font-size: 1.5rem;
+    width: 144px;
+    /* margin-right: 1rem; */
+    outline: none;
+}
+
+.password__copy {
+    background: transparent;
+    border: none;
+    color: var(--color-neon-green);
+    cursor: pointer;
+    /* padding: 0.5rem; */
+}
+
+.password__copy:hover {
+    opacity: 0.8;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7409%) hue-rotate(61deg) brightness(94%) contrast(120%);
+}
