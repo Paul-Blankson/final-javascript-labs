@@ -9,6 +9,7 @@
     <script defer src="./script.js"></script>
 </head>
 <body>
+    <!-- password block -->
     <div class="password">
         <h1 class="password__title">Password Generator</h1>
 
@@ -18,6 +19,19 @@
                 <img src="./assets/images/icon-copy.svg" alt="copy icon" class="password__copy-icon">
             </button>
         </div>
+        <!-- settings block -->
+        <div class="password__settings">
+            <!-- length slider -->
+            <div class="length">
+                <div class="length__header">
+                    <label class="length__label">Character Length</label>
+                    <span class="length__value">10</span>
+                </div>
+                <input type="range" class="length__slider" min="4" max="20" value="10">
+            </div>
+            
+        </div>
+
     </div> 
 </body>
 </html>
