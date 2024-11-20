@@ -29,14 +29,14 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 /* Password Block */
 .password {
-    background-color: #08070B;
-    padding: 1rem 3.9rem;
-    width: 375px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    width: 343px;
+    max-width: 343px;
+    margin: 1rem;
 }
 
 .password__title {
@@ -47,10 +47,10 @@ body {
 }
 
 .password__display {
-    position: relative;
     background-color: var(--color-bg-darkGrey);
     padding: 1rem;
     margin-bottom: 1rem;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,20 +62,66 @@ body {
     color: var(--color-almost-white);
     font-family: 'jetbrains';
     font-size: 1.5rem;
-    width: 144px;
-    /* margin-right: 1rem; */
     outline: none;
-}
+    width: 100%;
+} 
 
-.password__copy {
+ .password__copy {
     background: transparent;
     border: none;
     color: var(--color-neon-green);
     cursor: pointer;
-    /* padding: 0.5rem; */
-}
+ } 
 
 .password__copy:hover {
-    opacity: 0.8;
     filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7409%) hue-rotate(61deg) brightness(94%) contrast(120%);
+}
+
+.password__settings {
+    width: 100%;
+    background-color: var(--color-bg-darkGrey);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+/* Length Block */
+.length {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.length__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'jetbrains';
+}
+
+.length__label {
+    font-size: 1rem;
+}
+
+.length__value {
+    color: var(--color-neon-green);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.length__slider {
+    width: 100%;
+    height: 8px;
+    background: var(--color-bg-veryDarkGrey);
+    appearance: none;
+}
+
+.length__slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    background: var(--color-almost-white);
+    border-radius: 50%;
+    cursor: pointer;
 }
