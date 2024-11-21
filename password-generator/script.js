@@ -139,13 +139,14 @@ class PasswordGenerator {
   }
 
   init() {
-    this.updateLength(); // This is to set the initial text and slider background
+    this.updateLength();
     this.lengthSlider.addEventListener("input", this.updateLength.bind(this));
     this.generateButton.addEventListener(
       "click",
       this.generatePassword.bind(this)
     );
     this.copyButton.addEventListener("click", this.copyPassword.bind(this));
+    this.setDefaultStrengthState();
   }
 
   updateSliderBackground() {
@@ -174,6 +175,13 @@ class PasswordGenerator {
           console.error("Failed to copy: ", err);
         });
     }
+  }
+
+  setDefaultStrengthState() {
+    this.strengthText.textContent = '';
+        this.strengthBars.forEach(bar => {
+      bar.className = 'strength__bar strength__bar--not-filled';
+    });
   }
 }
 
