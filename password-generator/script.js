@@ -15,6 +15,8 @@ class PasswordGenerator {
       numbers: "0123456789",
       symbols: "!@#$%^&*()_+-=[]{}|;:,.<>?",
     };
+
+    this.init();
   }
   updateLength() {
     const length = this.lengthSlider.value;
@@ -134,4 +136,10 @@ class PasswordGenerator {
       }
     });
   }
+
+  init() {
+    this.lengthSlider.addEventListener('input', this.updateLength.bind(this));
+    this.generateButton.addEventListener('click', this.generatePassword.bind(this));
+}
+
 }
