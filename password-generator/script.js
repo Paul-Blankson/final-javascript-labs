@@ -46,75 +46,92 @@ class PasswordGenerator {
   generateRandomCharacter(characterSet) {
     const randomIndex = Math.floor(Math.random() * characterSet.length);
     return characterSet[randomIndex];
-}
+  }
 
-generatePassword() {
+  generatePassword() {
     const length = +this.lengthSlider.value;
     const selectedTypes = this.getSelectedCharacterTypes();
 
     if (selectedTypes.length === 0) {
-        alert('Please select at least one character type');
-        return;
+      alert("Please select at least one character type");
+      return;
     }
 
     const combinedCharSet = selectedTypes
-        .map(type => this.characterSets[type])
-        .join('');
+      .map((type) => this.characterSets[type])
+      .join("");
 
-    const password = selectedTypes.map(type => 
-        this.generateRandomCharacter(this.characterSets[type])
+    const password = selectedTypes.map((type) =>
+      this.generateRandomCharacter(this.characterSets[type])
     );
 
     // Fill remaining length
     while (password.length < length) {
-        password.push(
-            this.generateRandomCharacter(combinedCharSet)
-        );
+      password.push(this.generateRandomCharacter(combinedCharSet));
     }
 
     // Shuffle password
-    const shuffledPassword = this.shuffleArray(password).join('');
-    
+    const shuffledPassword = this.shuffleArray(password).join("");
+
     this.passwordDisplay.value = shuffledPassword;
 
     this.calculatePasswordStrength(shuffledPassword);
-}
+  }
 
-// Shuffle array using Fisher-Yates algorithm
-shuffleArray(array) {
+  // Shuffle array using Fisher-Yates algorithm
+  shuffleArray(array) {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
-}
+  }
 
-calculatePasswordStrength(password) {
+  calculatePasswordStrength(password) {
     const length = password.length;
     const selectedTypes = this.getSelectedCharacterTypes();
-    
-    let strength = 'TOO WEAK!';
-    let barCount = 0;
+
+    let strength = "TOO WEAK!";
+    let barCount = 1;
 
     if (length >= 12 && selectedTypes.length >= 3) {
-        strength = 'STRONG';
-        barCount = 4;
+      strength = "STRONG";
+      barCount = 4;
     } else if (length >= 8 && selectedTypes.length >= 2) {
-        strength = 'MEDIUM';
-        barCount = 3;
+      strength = "MEDIUM";
+      barCount = 3;
     } else if (length >= 8 && selectedTypes.length === 1) {
-        strength = 'WEAK';
-        barCount = 2;
-    }
-    else if (length < 8 ) {
-        strength = 'TOO WEAK!';
-        barCount = 1;
+      strength = "WEAK";
+      barCount = 2;
     }
 
     this.strengthText.textContent = strength;
-    this.updateStrengthBars(barCount);
-}
+    this.updateStrengthBars(strength, barCount);
+  }
 
+  updateStrengthBars(strength, count) {
+    this.strengthBars.forEach((bar, index) => {
+      bar.className = "strength__bar";
 
+      if (index < count) {
+        switch (strength) {
+          case "STRONG":
+            bar.classList.add("strength__bar--strong");
+            break;
+          case "MEDIUM":
+            bar.classList.add("strength__bar--medium");
+            break;
+          case "WEAK":
+            bar.classList.add("strength__bar--week");
+            break;
+          case "TOO WEAK!":
+            bar.classList.add("strength__bar--too-week");
+            break;
+        }
+      } else {
+        bar.classList.add("strength__bar--not-filled");
+      }
+    });
+  }
 }
