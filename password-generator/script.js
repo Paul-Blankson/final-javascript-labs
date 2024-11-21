@@ -90,4 +90,31 @@ shuffleArray(array) {
     return shuffled;
 }
 
+calculatePasswordStrength(password) {
+    const length = password.length;
+    const selectedTypes = this.getSelectedCharacterTypes();
+    
+    let strength = 'TOO WEAK!';
+    let barCount = 0;
+
+    if (length >= 12 && selectedTypes.length >= 3) {
+        strength = 'STRONG';
+        barCount = 4;
+    } else if (length >= 8 && selectedTypes.length >= 2) {
+        strength = 'MEDIUM';
+        barCount = 3;
+    } else if (length >= 8 && selectedTypes.length === 1) {
+        strength = 'WEAK';
+        barCount = 2;
+    }
+    else if (length < 8 ) {
+        strength = 'TOO WEAK!';
+        barCount = 1;
+    }
+
+    this.strengthText.textContent = strength;
+    this.updateStrengthBars(barCount);
+}
+
+
 }
