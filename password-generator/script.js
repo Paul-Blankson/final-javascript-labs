@@ -19,9 +19,11 @@ class PasswordGenerator {
     this.init();
   }
   updateLength() {
-    const length = this.lengthSlider.value;
-    this.lengthValue.textContent = length;
+      const length = this.lengthSlider.value;
+      this.lengthValue.textContent = length;
+      this.updateSliderBackground();
   }
+
 
   getSelectedCharacterTypes() {
     return [...this.checkboxes].reduce((types, checkbox, index) => {
@@ -138,12 +140,19 @@ class PasswordGenerator {
   }
 
   init() {
-    this.lengthSlider.addEventListener("input", this.updateLength.bind(this));
-    this.generateButton.addEventListener(
-      "click",
-      this.generatePassword.bind(this)
-    );
+      this.updateLength(); // This will set the initial text and slider background
+      this.lengthSlider.addEventListener("input", this.updateLength.bind(this));
+      this.generateButton.addEventListener("click", this.generatePassword.bind(this));
   }
+
+  updateSliderBackground() {
+      const value = this.lengthSlider.value;
+      const min = this.lengthSlider.min || 0;
+      const max = this.lengthSlider.max || 100;
+      const percentage = ((value - min) * 100) / (max - min);
+      this.lengthSlider.style.background = `linear-gradient(to right, var(--color-neon-green) ${percentage}%, var(--color-bg-veryDarkGrey) ${percentage}%)`;
+  }
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
