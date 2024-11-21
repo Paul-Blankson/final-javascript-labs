@@ -48,4 +48,46 @@ class PasswordGenerator {
     return characterSet[randomIndex];
 }
 
+generatePassword() {
+    const length = +this.lengthSlider.value;
+    const selectedTypes = this.getSelectedCharacterTypes();
+
+    if (selectedTypes.length === 0) {
+        alert('Please select at least one character type');
+        return;
+    }
+
+    const combinedCharSet = selectedTypes
+        .map(type => this.characterSets[type])
+        .join('');
+
+    const password = selectedTypes.map(type => 
+        this.generateRandomCharacter(this.characterSets[type])
+    );
+
+    // Fill remaining length
+    while (password.length < length) {
+        password.push(
+            this.generateRandomCharacter(combinedCharSet)
+        );
+    }
+
+    // Shuffle password
+    const shuffledPassword = this.shuffleArray(password).join('');
+    
+    this.passwordDisplay.value = shuffledPassword;
+
+    this.calculatePasswordStrength(shuffledPassword);
+}
+
+// Shuffle array using Fisher-Yates algorithm
+shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
 }
