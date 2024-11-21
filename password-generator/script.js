@@ -138,8 +138,14 @@ class PasswordGenerator {
   }
 
   init() {
-    this.lengthSlider.addEventListener('input', this.updateLength.bind(this));
-    this.generateButton.addEventListener('click', this.generatePassword.bind(this));
+    this.lengthSlider.addEventListener("input", this.updateLength.bind(this));
+    this.generateButton.addEventListener(
+      "click",
+      this.generatePassword.bind(this)
+    );
+  }
 }
 
-}
+document.addEventListener("DOMContentLoaded", () => {
+  new PasswordGenerator();
+});
