@@ -158,6 +158,12 @@ body {
     cursor: pointer;
 }
 
+.length__slider::-webkit-slider-thumb:hover {
+    background: var(--color-bg-veryDarkGrey);
+    border: 2px solid var(--color-neon-green);
+    transition: background 0.3s ease;
+}
+
 /* Options Block */
 .options {
     display: flex;
