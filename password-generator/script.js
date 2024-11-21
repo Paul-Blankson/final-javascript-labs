@@ -42,4 +42,10 @@ class PasswordGenerator {
       return types;
     }, []);
   }
+
+  generateRandomCharacter(characterSet) {
+    const randomIndex = Math.floor(Math.random() * characterSet.length);
+    return characterSet[randomIndex];
+}
+
 }
