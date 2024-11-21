@@ -73,9 +73,27 @@ body {
     border: none;
     color: var(--color-neon-green);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
  } 
 
-.password__copy:hover {
+ .password__copy-text {
+    color: var(--color-neon-green);
+    font-size: 1.125rem;
+    font-family: 'jetbrains',sans-serif;
+    font-weight: bold;
+    pointer-events: none;
+    display: none;
+    transition: display 0.3s ease;
+}
+
+.password__copy-text.active {
+    display: inline-block;
+    transition: display 0.3s ease;
+}
+
+.password__copy-icon:hover {
     filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7409%) hue-rotate(61deg) brightness(94%) contrast(120%);
 }
 
