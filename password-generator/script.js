@@ -157,22 +157,24 @@ class PasswordGenerator {
   }
 
   copyPassword() {
-      const password = this.passwordDisplay.value;
+    const password = this.passwordDisplay.value;
+    const copyText = this.copyButton.querySelector(".password__copy-text");
 
-      if (password) {
-          navigator.clipboard.writeText(password)
-              .then(() => {
-                  this.copyButton.classList.add("copied");
-                  setTimeout(() => {
-                      this.copyButton.classList.remove("copied");
-                  }, 3000);
-              })
-              .catch((err) => {
-                  console.error("Failed to copy: ", err);
-              });
-      }
+    if (password) {
+      navigator.clipboard
+        .writeText(password)
+        .then(() => {
+          copyText.classList.add("active");
+
+          setTimeout(() => {
+            copyText.classList.remove("active");
+          }, 2000);
+        })
+        .catch((err) => {
+          console.error("Failed to copy: ", err);
+        });
+    }
   }
-
 }
 
 document.addEventListener("DOMContentLoaded", () => {
