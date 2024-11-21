@@ -17,5 +17,9 @@ class PasswordGenerator {
         };
 
     }
+    updateLength() {
+        const length = this.lengthSlider.value;
+        this.lengthValue.textContent = length;
+    }
 
 }
