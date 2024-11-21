@@ -243,11 +243,14 @@ body {
 .strength__bar {
     width: 10px;
     height: 28px;
-    background-color: var(--color-yellow);
 }
 
 .strength__bar--strong {
     background-color: var(--color-neon-green);
+}
+
+.strength__bar--medium {
+    background-color: var(--color-yellow);
 }
 
 .strength__bar--week {
