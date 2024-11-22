@@ -231,3 +231,44 @@ input:checked + .header__theme-button::before {
   opacity: 1;
 }
 
+/* Meaning Block */
+.meaning {
+    margin-bottom: 2rem;
+  }
+
+  .meaning__part-of-speech {
+    font-style: italic;
+    font-size: 1.125rem;
+    font-family: 'inter', 'lora', 'inconsolata', sans-serif;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .meaning__part-of-speech::after {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background-color: var(--color-normal-ash);
+  }
+
+  .meaning__label {
+    color: var(--color-deep-ash);
+    font-size: 1rem;
+    font-family: 'inter', 'lora', 'inconsolata', sans-serif;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+  .meaning__list {
+    list-style-position: outside;
+    padding-left: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .meaning__item {
+    margin-bottom: 0.8125rem;
+    line-height: 1.5;
+    font-family: 'inter', 'lora', 'inconsolata', sans-serif;
+  }
