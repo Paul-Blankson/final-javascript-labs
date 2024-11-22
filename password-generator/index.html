@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./script.js"></script>
+</head>
+<body>
+    <!-- password block -->
+    <div class="password">
+        <h1 class="password__title">Password Generator</h1>
+        
+        <div class="password__display">
+            <input type="text" class="password__input" readonly value="" placeholder="PTx1f5DaFX">
+            <button class="password__copy">
+                <span class="password__copy-text">Copied</span>
+                <img src="./assets/images/icon-copy.svg" alt="copy icon" class="password__copy-icon">
+            </button>
+        </div>
+        <!-- settings block -->
+        <div class="password__settings">
+            <!-- length block -->
+            <div class="length">
+                <div class="length__header">
+                    <label class="length__label">Character Length</label>
+                    <span class="length__value">10</span>
+                </div>
+                <input type="range" class="length__slider" min="0" max="20" value="0">
+            </div>
+            <!-- options block -->
+            <div class="options">
+                <label class="options__item">
+                    <input type="checkbox" class="options__checkbox" checked>
+                    <span class="options__label">Include Uppercase Letters</span>
+                </label>
+                <label class="options__item">
+                    <input type="checkbox" class="options__checkbox" checked>
+                    <span class="options__label">Include Lowercase Letters</span>
+                </label>
+                <label class="options__item">
+                    <input type="checkbox" class="options__checkbox" checked>
+                    <span class="options__label">Include Numbers</span>
+                </label>
+                <label class="options__item">
+                    <input type="checkbox" class="options__checkbox">
+                    <span class="options__label">Include Symbols</span>
+                </label>
+            </div>
+            <!-- stength block -->
+            <div class="strength">
+                <span class="strength__label">STRENGTH</span>
+                <div class="strength__meter">
+                    <span class="strength__text"></span>
+                    <div class="strength__bars">
+                        <div class="strength__bar"></div>
+                        <div class="strength__bar"></div>
+                        <div class="strength__bar"></div>
+                        <div class="strength__bar"></div>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <button class="password__generate">
+                Generate <img src="./assets//images/icon-arrow-right.svg" alt="arror-right" class="password__generate-arrow">
+            </button>
+            
+        </div>
+
+    </div> 
+</body>
+</html>

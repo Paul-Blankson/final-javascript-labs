@@ -1,0 +1,425 @@
+:root {
+  --color-bg-veryDarkGrey: #18171F;
+  --color-bg-darkGrey: #24232C;
+  --color-bg-grey: #817D92;
+  --color-almost-white: #E6E5EA;
+  --color-neon-green: #A4FFAF;
+  --color-yellow: #F8CD65;
+  --color-orange: #FB7C58;
+  --color-red: #F64A4A;
+}
+
+@font-face {
+    font-family: jetbrains;
+    src: url('./assets/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+    font-style: normal;
+    font-weight: bold;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #08070B;
+    color: var(--color-almost-white);
+    font-family: 'jetbrains', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Password Block */
+.password {
+    width: 343px;
+    max-width: 343px;
+    margin: 1rem;
+}
+
+.password__title {
+    text-align: center;
+    color: var(--color-bg-grey);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-family: 'jetbrains', sans-serif;
+}
+
+.password__display {
+    background-color: var(--color-bg-darkGrey);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password__input {
+    background: transparent;
+    border: none;
+    color: var(--color-almost-white);
+    font-family: 'jetbrains';
+    font-size: 1.5rem;
+    outline: none;
+    width: 100%;
+} 
+
+ .password__copy {
+    background: transparent;
+    border: none;
+    color: var(--color-neon-green);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+ } 
+
+ .password__copy-text {
+    color: var(--color-neon-green);
+    font-size: 1.125rem;
+    font-family: 'jetbrains',sans-serif;
+    font-weight: bold;
+    pointer-events: none;
+    display: none;
+    transition: display 0.3s ease;
+}
+
+.password__copy-text.active {
+    display: inline-block;
+    transition: display 0.3s ease;
+}
+
+.password__copy-icon:hover {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7409%) hue-rotate(61deg) brightness(94%) contrast(120%);
+}
+
+.password__settings {
+    width: 100%;
+    background-color: var(--color-bg-darkGrey);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.password__generate {
+    background-color: var(--color-neon-green);
+    color: var(--color-bg-darkGrey);
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'jetbrains';
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.password__generate:hover {
+    background-color: transparent;
+    border: 2px solid var(--color-neon-green);
+    /* color: var(--color-neon-green); */
+    filter: brightness(0) saturate(100%) invert(98%) sepia(89%) saturate(745%) hue-rotate(53deg) brightness(105%) contrast(101%);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.password__generate:focus {
+    outline: none;
+    border: 2px solid var(--color-neon-green);
+}
+
+/* Length Block */
+.length {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-bottom: 1rem;
+}
+
+.length__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'jetbrains';
+}
+
+.length__label {
+    font-size: 1rem;
+}
+
+.length__value {
+    color: var(--color-neon-green);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.length__slider {
+    width: 100%;
+    height: 8px;
+    background: var(--color-bg-veryDarkGrey);
+    appearance: none;
+}
+
+.length__slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    background: var(--color-almost-white);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.length__slider::-webkit-slider-thumb:hover {
+    background: var(--color-bg-veryDarkGrey);
+    border: 2px solid var(--color-neon-green);
+    transition: background 0.3s ease;
+}
+
+/* Options Block */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.options__item {
+    height: 21px;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    /* cursor: pointer; */
+}
+
+.options__checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-almost-white);
+    cursor: pointer;
+    position: relative;
+}
+
+.options__checkbox:hover {
+    border-color: var(--color-neon-green);
+}
+
+.options__checkbox:checked {
+    background-color: var(--color-neon-green);
+    border-color: var(--color-neon-green);
+}
+
+.options__checkbox:checked::before {
+    content: url('./assets/images/icon-check.svg');
+    position: absolute;
+    color: var(--color-bg-veryDarkGrey);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+}
+
+/* Strength Block */
+.strength {
+    background-color: var(--color-bg-veryDarkGrey);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.strength__label {
+    color: var(--color-bg-grey);
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-family: 'jetbrains';
+}
+
+.strength__meter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.strength__text {
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    font-weight: bold;
+    font-family: 'jetbrains';
+}
+
+.strength__bars {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.strength__bar {
+    width: 10px;
+    height: 28px;
+}
+
+.strength__bar--strong {
+    background-color: var(--color-neon-green);
+}
+
+.strength__bar--medium {
+    background-color: var(--color-yellow);
+}
+
+.strength__bar--week {
+    background-color: var(--color-orange);
+}
+
+.strength__bar--too-week {
+    background-color: var(--color-red);
+}
+
+.strength__bar--not-filled {
+    background-color: transparent;
+    border: 2px solid #E6E5EA;
+}
+
+/* Tablet Styles */
+@media screen and (min-width: 600px) {
+    .password {
+        width: 540px;
+        max-width: 540px;
+    }
+
+    .password__title {
+        font-size: 1.5rem;
+        margin-bottom: 1.9375rem;
+    }
+
+    .password__input {
+        font-size: 2rem;
+    }
+
+    .password__display {
+        padding: 1.25rem;
+    }
+
+    .password__settings {
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .password__generate {
+        font-size: 1.125rem;
+    }
+
+    .length__header {
+        margin-bottom: 1rem;
+    }
+
+    .length__label {
+        font-size: 1.125rem;
+    }
+
+    .length__value {
+        font-size: 2rem;
+    }
+
+    .length__slider {
+        height: 8px;
+    }
+
+    .length__slider::-webkit-slider-thumb {
+        width: 28px;
+        height: 28px;
+    }
+
+    .options__item {
+        gap: 1.25rem;
+        height: 23px;
+    }
+
+    .options__checkbox {
+        width: 20px;
+        height: 20px;
+    }
+
+    .strength {
+        height: 72px;
+    }
+
+    .strength__label {
+        font-size: 1.125rem;
+    }
+
+    .strength__text {
+        font-size: 1.5rem;
+    }
+
+    .strength__bars {
+        gap: 0.75rem;
+    }
+
+    .strength__bar {
+        width: 10px;
+        height: 28px;
+    }
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 1024px) {
+    body {
+        overflow: visible;
+    }
+
+    .password {
+        width: 540px;
+        max-width: 540px;
+    }
+
+    .password__title {
+        font-size: 1.5rem;
+        margin-bottom: 1.9375rem;
+    }
+
+    .password__display {
+        padding: 1.5rem;
+    }
+
+    .password__settings {
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .length__slider::-webkit-slider-thumb {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Large Desktop Styles */
+@media screen and (min-width: 1440px) {
+    .password {
+        width: 540px;
+        max-width: 540px;
+    }
+
+    .password__title {
+        font-size: 1.5rem;
+        margin-bottom: 1.9375rem;
+    }
+
+    .password__display {
+        padding: 1.5rem;
+    }
+
+    .password__settings {
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .length__slider::-webkit-slider-thumb {
+        width: 28px;
+        height: 28px;
+    }
+}
