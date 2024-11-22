@@ -1,0 +1,41 @@
+:root {
+  --color-veryDark: #050505;
+  --color-almostDark: #1f1f1f;
+  --color-deep-brown: #2d2d2d;
+  --color-light-brown: #3a3a3a;
+  --color-deep-ash: #757575;
+  --color-normal-ash: #e9e9e9;
+  --color-almost-white: #f4f4f4;
+  --color-white: #ffffff;
+  --color-thistle: #a445ed;
+  --color-custom-red: #ff5252;
+}
+
+@font-face {
+  font-family: inter;
+  src: url("./assets/fonts/inter/Inter-VariableFont_slnt\,wght.ttf")
+    format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: lora;
+  src: url("./assets/fonts/lora/Lora-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: inconsolata;
+  src: url("./assets/fonts/inconsolata/Inconsolata-VariableFont_wdth\,wght.ttf")
+    format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
