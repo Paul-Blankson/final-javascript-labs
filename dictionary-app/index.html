@@ -9,6 +9,26 @@
     <script defer src="./script.js"></script>
 </head>
 <body>
-    
+    <header class="header">
+        <img src="./assets/images/logo.svg" alt="logo" class="header__logo">
+
+        <div class="header__controls">
+
+            <div class="header__font-select">
+              <select id="fontSelect" class="header__font-dropdown">
+                <option value="sans">Sans Serif</option>
+                <option value="serif">Serif</option>
+                <option value="mono">Mono</option>
+              </select>
+            </div>
+            
+            <div class="header__theme-toggle">
+              <input type="checkbox" id="themeToggle" class="header__theme-checkbox">
+              <label class="header__theme-button" for="themeToggle" aria-label="Toggle dark mode"></label>
+              <img src="./assets/images/icon-moon.svg" alt="moon icon" class="header__theme-moon-icon">
+            </div>
+
+        </div>
+    </header>
 </body>
 </html>
