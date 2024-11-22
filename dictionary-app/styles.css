@@ -1,7 +1,7 @@
 :root {
   --color-veryDark: #050505;
   --color-almostDark: #1f1f1f;
-  --color-deep-brown: #2d2d2d;
+  --color-text-black: #2d2d2d;
   --color-light-brown: #3a3a3a;
   --color-deep-ash: #757575;
   --color-normal-ash: #e9e9e9;
@@ -38,4 +38,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+    font-family: inter, sans-serif;
+    background-color: var(--color-white);
+    color: var(--color-text-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
