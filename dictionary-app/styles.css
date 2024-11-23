@@ -41,20 +41,20 @@
 }
 
 body {
-    font-family: inter, sans-serif;
-    background-color: var(--color-white);
-    color: var(--color-text-black);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
-    max-width: 375px;
-    padding: 1.5rem;
-    margin: 0 auto;
-    font-family: 'inter';
-    overflow-x: hidden;
-  }
+  font-family: inter, sans-serif;
+  background-color: var(--color-white);
+  color: var(--color-text-black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 375px;
+  padding: 1.5rem;
+  margin: 0 auto;
+  font-family: "inter";
+  overflow-x: hidden;
+}
 
 /* Header Block */
 .header {
@@ -155,9 +155,21 @@ input:checked + .header__theme-button::before {
   caret-color: var(--color-thistle);
 }
 
-
 .search__input:focus {
   outline: 1px solid var(--color-thistle);
+}
+
+.search__input.error {
+    border: 1.5 solid var(--color-custom-red);
+}
+
+.search__error-message {
+    color: var(--color-custom-red);
+    font-size: 1rem;
+    font-family: 'inter';
+    font-weight: 300;
+    margin-top: 0.5rem;
+    display: none;
 }
 
 .search__button {
@@ -242,344 +254,425 @@ input:checked + .header__theme-button::before {
 
 /* Meaning Block */
 .meaning {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.meaning__part-of-speech {
+  font-style: italic;
+  font-size: 1.125rem;
+  font-family: "inter", "lora", "inconsolata", sans-serif;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.meaning__part-of-speech::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--color-normal-ash);
+}
+
+.meaning__label {
+  color: var(--color-deep-ash);
+  font-size: 1rem;
+  font-family: "inter", "lora", "inconsolata", sans-serif;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.meaning__list {
+  list-style-position: outside;
+  padding-left: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.meaning__list li::marker {
+  color: var(--color-thistle);
+}
+.meaning__item {
+  margin-bottom: 0.8125rem;
+  line-height: 1.5;
+  font-family: "inter", "lora", "inconsolata", sans-serif;
+}
+
+/* synonyms block */
+.synonyms {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  line-height: 1.5;
+}
+
+.synonyms__label {
+  color: var(--color-deep-ash);
+  font-size: 1rem;
+  font-family: "inter", "lora", "inconsolata", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.synonyms__text {
+  font-size: 1.125rem;
+  font-family: "inter", "lora", "inconsolata", sans-serif;
+  font-weight: 800;
+  color: var(--color-thistle);
+}
+
+.synonyms__text:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Verb block */
+.verb {
+  margin-bottom: 2rem;
+  gap: 1rem;
+  width: 100%;
+  line-height: 1.5;
+}
+
+.verb__label {
+  font-style: italic;
+  font-size: 1.125rem;
+  font-family: "inter", "lora", "inconsolata", sans-serif;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.verb__label::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--color-normal-ash);
+}
+
+.verb__list {
+  list-style-position: outside;
+  padding-left: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.verb__list li::marker {
+  color: var(--color-thistle);
+}
+
+.verb__item {
+  margin-bottom: 0.8125rem;
+  line-height: 1.5;
+  font-family: "inter", "lora", "inconsolata", sans-serif;
+}
+
+.example__verb {
+  font-size: 0.9375rem;
+  font-family: "inter", "lora", "inconsolata", sans-serif;
+  font-weight: 300;
+  color: var(--color-text-black);
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Source Block */
+.source {
+  width: 100%;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-normal-ash);
+  margin-bottom: 2rem;
+}
+
+.source__label {
+  color: var(--color-deep-ash);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  font-family: "inter", "lora", "inconsolata", sans-serif;
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-color: var(--color-deep-ash);
+  text-underline-offset: 3px;
+  text-align: left;
+}
+
+.source__link {
+  color: var(--color-text-black);
+  font-size: 0.875rem;
+  text-decoration: underline;
+  display: flex;
+  align-items: left;
+  gap: 0.5rem;
+}
+
+.external__link--icon-new-window {
+  width: 12px;
+  height: 12px;
+  transition: 0.3s ease;
+}
+
+/* Tablet Styles */
+@media screen and (min-width: 768px) {
+  body {
+    max-width: 689px;
+    padding: 2.5rem;
   }
 
-  .meaning__part-of-speech {
-    font-style: italic;
-    font-size: 1.125rem;
-    font-family: 'inter', 'lora', 'inconsolata', sans-serif;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  .header__logo {
+    width: 32px;
+    height: 36.5px;
   }
 
-  .meaning__part-of-speech::after {
-    content: "";
-    flex-grow: 1;
-    height: 1px;
-    background-color: var(--color-normal-ash);
+  .header__font-dropdown {
+    width: 120px;
+  }
+
+  .search__input {
+    padding: 1.25rem 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  .word__title {
+    font-size: 4rem;
+  }
+
+  .word__phonetic {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .word__play-button {
+    width: 75px;
+    height: 75px;
+  }
+
+  .meaning__part-of-speech,
+  .verb__label {
+    font-size: 1.5rem;
   }
 
   .meaning__label {
-    color: var(--color-deep-ash);
-    font-size: 1rem;
-    font-family: 'inter', 'lora', 'inconsolata', sans-serif;
-    font-weight: 400;
-    margin-bottom: 1rem;
+    font-size: 1.25rem;
   }
 
-  .meaning__list {
-    list-style-position: outside;
-    padding-left: 1.25rem;
-    margin-bottom: 1.5rem;
+  .meaning__list,
+  .verb__list {
+    padding-left: 2.5rem;
   }
 
-  .meaning__list li::marker {
-    color: var(--color-thistle);
-  }
-  .meaning__item {
+  .meaning__item,
+  .verb__item {
+    font-size: 1.125rem;
     margin-bottom: 0.8125rem;
-    line-height: 1.5;
-    font-family: 'inter', 'lora', 'inconsolata', sans-serif;
   }
 
-
-  /* synonyms block */
   .synonyms {
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    width: 100%;
-    line-height: 1.5;
+    gap: 2rem;
   }
-  
+
   .synonyms__label {
-    color: var(--color-deep-ash);
-    font-size: 1rem;
-    font-family: 'inter', 'lora', 'inconsolata', sans-serif;
-    font-weight: 400;
-    font-style: italic;
+    font-size: 1.25rem;
   }
 
   .synonyms__text {
-    font-size: 1.125rem;
-    font-family: 'inter', 'lora', 'inconsolata', sans-serif;
-    font-weight: 800;
-    color: var(--color-thistle);
-  }
-
-  .synonyms__text:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-  /* Verb block */
-  .verb {
-    margin-bottom: 2rem;
-    gap: 1rem;
-    width: 100%;
-    line-height: 1.5;
-  }
-
-  .verb__label {
-    font-style: italic;
-    font-size: 1.125rem;
-    font-family: 'inter', 'lora', 'inconsolata', sans-serif;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .verb__label::after {
-    content: "";
-    flex-grow: 1;
-    height: 1px;
-    background-color: var(--color-normal-ash);
-  }
-
-  .verb__list {
-    list-style-position: outside;
-    padding-left: 1.25rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .verb__list li::marker {
-    color: var(--color-thistle);
-  }
-
-  .verb__item {
-    margin-bottom: 0.8125rem;
-    line-height: 1.5;
-    font-family: 'inter', 'lora', 'inconsolata', sans-serif;
+    font-size: 1.25rem;
   }
 
   .example__verb {
-    font-size: 0.9375rem;
-    font-family: 'inter', 'lora', 'inconsolata', sans-serif;
-    font-weight: 300;
-    color: var(--color-text-black);
-    line-height: 1.5;
+    font-size: 1.125rem;
+    margin-left: 0.3rem;
+  }
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 1024px) {
+  body {
+    max-width: 737px;
+    padding: 4rem;
+    overflow-x: hidden;
+  }
+
+  .header__logo {
+    width: 32px;
+    height: 36.5px;
+  }
+
+  .search__input {
+    font-size: 1.25rem;
     text-align: left;
   }
 
-  /* Source Block */
-  .source {
-    width: 100%;
-    padding-top: 1rem;
-    border-top: 1px solid var(--color-normal-ash);
-    margin-bottom: 2rem;
-  }
-
-  .source__label {
-    color: var(--color-deep-ash);
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
-    font-family: 'inter', 'lora', 'inconsolata', sans-serif;
-    font-weight: 400;
-    text-decoration: underline;
-    text-decoration-color: var(--color-deep-ash);
-    text-underline-offset: 3px;
+  .search__error-message {
+    font-size: 1.25rem;
     text-align: left;
   }
 
-
-
-  .source__link {
-    color: var(--color-text-black);
-    font-size: 0.875rem;
-    text-decoration: underline;
-    display: flex;
-    align-items: left;
-    gap: 0.5rem;
+  .word__title {
+    font-size: 4rem;
   }
 
-  .external__link--icon-new-window {
-    width: 12px;
-    height: 12px;
-    transition: 0.3s ease;
+  .word__phonetic {
+    font-size: 1.5rem;
   }
 
-  /* Tablet Styles */
-@media screen and (min-width: 768px) {
-    body {
-      max-width: 689px;
-      padding: 2.5rem;
-    }
-  
-    .header__logo {
-      width: 32px;
-      height: 36.5px;
-    }
-  
-    .header__font-dropdown {
-      width: 120px;
-    }
-  
-    .search__input {
-      padding: 1.25rem 1.5rem;
-      font-size: 1.25rem;
-    }
-  
-    .word__title {
-      font-size: 4rem;
-    }
-  
-    .word__phonetic {
-      font-size: 1.5rem;
-      margin-top: 0.5rem;
-    }
-  
-    .word__play-button {
-      width: 75px;
-      height: 75px;
-    }
-  
-    .meaning__part-of-speech,
-    .verb__label {
-      font-size: 1.5rem;
-    }
-  
-    .meaning__label {
-      font-size: 1.25rem;
-    }
-  
-    .meaning__list,
-    .verb__list {
-      padding-left: 2.5rem;
-    }
-  
-    .meaning__item,
-    .verb__item {
-      font-size: 1.125rem;
-      margin-bottom: 0.8125rem;
-    }
-  
-    .synonyms {
-      gap: 2rem;
-    }
-  
-    .synonyms__label {
-      font-size: 1.25rem;
-    }
-  
-    .synonyms__text {
-      font-size: 1.25rem;
-    }
-  
-    .example__verb {
-      font-size: 1.125rem;
-      margin-left: .3rem;
-    }
+  .word__play-button {
+    width: 75px;
+    height: 75px;
   }
-  
-  /* Desktop Styles */
-  @media screen and (min-width: 1024px) {
-    body {
-        max-width: 737px;
-        padding: 4rem;
-        overflow-x: hidden;
-      }
-    
-      .header__logo {
-        width: 32px;
-        height: 36.5px;
-      }
-  
-      .search__input {
-          font-size: 1.25rem;
-          text-align: left;
-      }
-    
-      .word__title {
-        font-size: 4rem;
-      }
-    
-      .word__phonetic {
-        font-size: 1.5rem;
-      }
-    
-      .word__play-button {
-        width: 75px;
-        height: 75px;
-      }
-    
-      .meaning__part-of-speech,
-      .verb__label {
-        font-size: 1.5rem;
-      }
-    
-      .meaning__label {
-        font-size: 1.25rem;
-      }
-    
-      .meaning__item,
-      .verb__item {
-        font-size: 1.125rem;
-      }
-    
-      .synonyms__label {
-        font-size: 1.25rem;
-      }
-    
-      .synonyms__text {
-        font-size: 1.25rem;
-      }
-  }
-  
-  /* Large Desktop Styles */
-  @media screen and (min-width: 1440px) {
-    body {
-      max-width: 737px;
-      padding: 4rem;
-      overflow-x: hidden;
-    }
-  
-    .header__logo {
-      width: 32px;
-      height: 36.5px;
-    }
 
-    .search__input {
-        font-size: 1.25rem;
-        text-align: left;
-    }
-  
-    .word__title {
-      font-size: 4rem;
-    }
-  
-    .word__phonetic {
-      font-size: 1.5rem;
-    }
-  
-    .word__play-button {
-      width: 75px;
-      height: 75px;
-    }
-  
-    .meaning__part-of-speech,
-    .verb__label {
-      font-size: 1.5rem;
-    }
-  
-    .meaning__label {
-      font-size: 1.25rem;
-    }
-  
-    .meaning__item,
-    .verb__item {
-      font-size: 1.125rem;
-    }
-  
-    .synonyms__label {
-      font-size: 1.25rem;
-    }
-  
-    .synonyms__text {
-      font-size: 1.25rem;
-    }
+  .meaning__part-of-speech,
+  .verb__label {
+    font-size: 1.5rem;
   }
+
+  .meaning__label {
+    font-size: 1.25rem;
+  }
+
+  .meaning__item,
+  .verb__item {
+    font-size: 1.125rem;
+  }
+
+  .synonyms__label {
+    font-size: 1.25rem;
+  }
+
+  .synonyms__text {
+    font-size: 1.25rem;
+  }
+}
+
+/* Large Desktop Styles */
+@media screen and (min-width: 1440px) {
+  body {
+    max-width: 737px;
+    padding: 4rem;
+    overflow-x: hidden;
+  }
+
+  .header__logo {
+    width: 32px;
+    height: 36.5px;
+  }
+
+  .search__input {
+    font-size: 1.25rem;
+    text-align: left;
+  }
+
+  .search__error-message {
+    font-size: 1.25rem;
+    text-align: left;
+  }
+
+  .word__title {
+    font-size: 4rem;
+  }
+
+  .word__phonetic {
+    font-size: 1.5rem;
+  }
+
+  .word__play-button {
+    width: 75px;
+    height: 75px;
+  }
+
+  .meaning__part-of-speech,
+  .verb__label {
+    font-size: 1.5rem;
+  }
+
+  .meaning__label {
+    font-size: 1.25rem;
+  }
+
+  .meaning__item,
+  .verb__item {
+    font-size: 1.125rem;
+  }
+
+  .synonyms__label {
+    font-size: 1.25rem;
+  }
+
+  .synonyms__text {
+    font-size: 1.25rem;
+  }
+}
+
+/* Dark theme styles */
+body.dark {
+  background-color: var(--color-veryDark);
+  color: var(--color-white);
+}
+
+
+body.dark .header__font-dropdown {
+  color: var(--color-white);
+  background-color: var(--color-veryDark);
+}
+
+body.dark .header__font-select {
+  border-right-color: var(--color-light-brown);
+}
+
+body.dark .header__theme-moon-icon {
+  filter: brightness(0) saturate(100%) invert(30%) sepia(95%) saturate(2205%)
+    hue-rotate(257deg) brightness(96%) contrast(93%);
+}
+
+body.dark .search__input {
+  background-color: var(--color-almostDark);
+  color: var(--color-white);
+}
+
+body.dark .search__input::placeholder {
+  color: var(--color-deep-ash);
+}
+
+body.dark .search__input.error {
+  border: 1px solid var(--color-custom-red);
+}
+
+body.dark .word__title {
+  color: var(--color-white);
+}
+
+body.dark .word__phonetic {
+  color: var(--color-thistle);
+}
+
+body.dark .meaning__part-of-speech::after,
+body.dark .verb__label::after {
+  background-color: var(--color-light-brown);
+}
+
+body.dark .meaning__label,
+body.dark .synonyms__label {
+  color: var(--color-deep-ash);
+}
+
+body.dark .meaning__item,
+body.dark .verb__item {
+  color: var(--color-white);
+}
+
+body.dark .example__verb {
+  color: var(--color-deep-ash);
+}
+
+body.dark .source {
+  border-top-color: var(--color-light-brown);
+}
+
+body.dark .source__label {
+  color: var(--color-deep-ash);
+}
+
+body.dark .source__link {
+  color: var(--color-deep-ash);
+}
+
