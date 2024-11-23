@@ -53,6 +53,7 @@ body {
     padding: 1.5rem;
     margin: 0 auto;
     font-family: 'inter';
+    overflow-x: hidden;
   }
 
 /* Header Block */
@@ -87,6 +88,8 @@ body {
   padding-bottom: 0.5625rem;
   border: none !important;
   outline: none !important;
+  color: var(--color-text-black);
+  width: 100px;
 }
 
 .header__theme-toggle {
@@ -184,12 +187,14 @@ input:checked + .header__theme-button::before {
 .word__title {
   font-size: 2rem;
   font-weight: 900;
+  text-align: left;
   font-family: "inter", "lora", "inconsolata", sans-serif;
 }
 
 .word__phonetic {
   color: var(--color-thistle);
   font-size: 1.125rem;
+  text-align: left;
   margin-top: 0.5rem;
 }
 
@@ -396,4 +401,185 @@ input:checked + .header__theme-button::before {
     width: 12px;
     height: 12px;
     transition: 0.3s ease;
+  }
+
+  /* Tablet Styles */
+@media screen and (min-width: 768px) {
+    body {
+      max-width: 689px;
+      padding: 2.5rem;
+    }
+  
+    .header__logo {
+      width: 32px;
+      height: 36.5px;
+    }
+  
+    .header__font-dropdown {
+      width: 120px;
+    }
+  
+    .search__input {
+      padding: 1.25rem 1.5rem;
+      font-size: 1.25rem;
+    }
+  
+    .word__title {
+      font-size: 4rem;
+    }
+  
+    .word__phonetic {
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
+    }
+  
+    .word__play-button {
+      width: 75px;
+      height: 75px;
+    }
+  
+    .meaning__part-of-speech,
+    .verb__label {
+      font-size: 1.5rem;
+    }
+  
+    .meaning__label {
+      font-size: 1.25rem;
+    }
+  
+    .meaning__list,
+    .verb__list {
+      padding-left: 2.5rem;
+    }
+  
+    .meaning__item,
+    .verb__item {
+      font-size: 1.125rem;
+      margin-bottom: 0.8125rem;
+    }
+  
+    .synonyms {
+      gap: 2rem;
+    }
+  
+    .synonyms__label {
+      font-size: 1.25rem;
+    }
+  
+    .synonyms__text {
+      font-size: 1.25rem;
+    }
+  
+    .example__verb {
+      font-size: 1.125rem;
+      margin-left: .3rem;
+    }
+  }
+  
+  /* Desktop Styles */
+  @media screen and (min-width: 1024px) {
+    body {
+        max-width: 737px;
+        padding: 4rem;
+        overflow-x: hidden;
+      }
+    
+      .header__logo {
+        width: 32px;
+        height: 36.5px;
+      }
+  
+      .search__input {
+          font-size: 1.25rem;
+          text-align: left;
+      }
+    
+      .word__title {
+        font-size: 4rem;
+      }
+    
+      .word__phonetic {
+        font-size: 1.5rem;
+      }
+    
+      .word__play-button {
+        width: 75px;
+        height: 75px;
+      }
+    
+      .meaning__part-of-speech,
+      .verb__label {
+        font-size: 1.5rem;
+      }
+    
+      .meaning__label {
+        font-size: 1.25rem;
+      }
+    
+      .meaning__item,
+      .verb__item {
+        font-size: 1.125rem;
+      }
+    
+      .synonyms__label {
+        font-size: 1.25rem;
+      }
+    
+      .synonyms__text {
+        font-size: 1.25rem;
+      }
+  }
+  
+  /* Large Desktop Styles */
+  @media screen and (min-width: 1440px) {
+    body {
+      max-width: 737px;
+      padding: 4rem;
+      overflow-x: hidden;
+    }
+  
+    .header__logo {
+      width: 32px;
+      height: 36.5px;
+    }
+
+    .search__input {
+        font-size: 1.25rem;
+        text-align: left;
+    }
+  
+    .word__title {
+      font-size: 4rem;
+    }
+  
+    .word__phonetic {
+      font-size: 1.5rem;
+    }
+  
+    .word__play-button {
+      width: 75px;
+      height: 75px;
+    }
+  
+    .meaning__part-of-speech,
+    .verb__label {
+      font-size: 1.5rem;
+    }
+  
+    .meaning__label {
+      font-size: 1.25rem;
+    }
+  
+    .meaning__item,
+    .verb__item {
+      font-size: 1.125rem;
+    }
+  
+    .synonyms__label {
+      font-size: 1.25rem;
+    }
+  
+    .synonyms__text {
+      font-size: 1.25rem;
+    }
   }
