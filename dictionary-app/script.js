@@ -18,4 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('theme', 'light');
         }
     });
+
+    const fontSelect = document.getElementById('fontSelect');
+    const fonts = {
+        'sans': 'inter, sans-serif',
+        'serif': 'lora, serif',
+        'mono': 'inconsolata, monospace'
+    };
+
+    // Load saved font preference or default to sans
+    const savedFont = localStorage.getItem('font') || 'sans';
+    document.body.style.fontFamily = fonts[savedFont];
+    fontSelect.value = savedFont;
+
+    fontSelect.addEventListener('change', (e) => {
+        const selectedFont = e.target.value;
+        document.body.style.fontFamily = fonts[selectedFont];
+        localStorage.setItem('font', selectedFont);
+    });
 });
