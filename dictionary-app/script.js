@@ -37,3 +37,40 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('font', selectedFont);
     });
 });
+
+const API_URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
+
+const searchForm = document.getElementById('searchForm');
+const searchInput = document.getElementById('searchInput');
+const errorMessage = document.getElementById('errorMessage');
+
+// Search form functionality
+searchForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const searchTerm = searchInput.value.trim();
+    
+    if (!searchTerm) {
+        console.log("Whoops, can't be empty…");
+        return;
+    }
+
+    try {
+        // Show loading state later
+        searchInput.classList.remove('error');
+        errorMessage.style.display = 'none';
+        
+        // Fetch word data
+        const response = await fetch(`${API_URL}${encodeURIComponent(searchTerm)}`);
+        
+        if (!response.ok) {
+            throw new Error('Word not found');
+        }
+
+        const data = await response.json();
+        console.log(data);
+
+    } catch (error) {
+        console.log(error);
+    }
+});
