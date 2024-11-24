@@ -74,3 +74,8 @@ searchForm.addEventListener('submit', async (e) => {
         console.log(error);
     }
 });
+
+function displayWordData(wordData) {
+    document.querySelector('.word__title').textContent = wordData.word;
+    document.querySelector('.word__phonetic').textContent = wordData.phonetic || '';
+}
