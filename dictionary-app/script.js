@@ -78,4 +78,17 @@ searchForm.addEventListener('submit', async (e) => {
 function displayWordData(wordData) {
     document.querySelector('.word__title').textContent = wordData.word;
     document.querySelector('.word__phonetic').textContent = wordData.phonetic || '';
+
+    handleAudio(wordData.phonetics);
+}
+
+function handleAudio(phonetics) {
+    const audioElement = document.querySelector('.word__play-button');
+    const audioSource = phonetics.find(phonetic => phonetic.audio)?.audio;
+    if (audioSource) {
+        audioElement.onclick = () => new Audio(audioSource).play();
+        audioElement.style.display = 'block';
+    } else {
+        audioElement.style.display = 'none';
+    }
 }
