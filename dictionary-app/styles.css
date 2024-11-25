@@ -615,10 +615,6 @@ body.dark .search__input::placeholder {
   color: var(--color-deep-ash);
 }
 
-body.dark .search__input.error {
-  border: 1px solid var(--color-custom-red);
-}
-
 body.dark .word__title {
   color: var(--color-white);
 }
