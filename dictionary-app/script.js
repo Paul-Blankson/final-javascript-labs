@@ -82,6 +82,7 @@ function displayWordData(wordData) {
 
     handleAudio(wordData.phonetics);
     handleMeanings(wordData.meanings);
+    handleSource(wordData.sourceUrls);
 }
 
 function handleAudio(phonetics) {
@@ -127,5 +128,16 @@ function handleSynonyms(synonyms) {
             <h2 class="synonyms__text">${synonyms.join(', ')}</h2>
         `;
         document.querySelector('.meaning').appendChild(synonymsSection);
+    }
+}
+
+function handleSource(sourceUrls) {
+    const sourceElement = document.querySelector('.source__link');
+    if (sourceUrls && sourceUrls.length > 0) {
+        sourceElement.href = sourceUrls[0];
+        sourceElement.textContent = sourceUrls[0];
+        sourceElement.style.display = 'inline-flex';
+    } else {
+        sourceElement.style.display = 'none';
     }
 }
