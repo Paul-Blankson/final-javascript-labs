@@ -117,3 +117,15 @@ function handleMeanings(meanings) {
         handleSynonyms(meaning.synonyms);
     });
 }
+
+function handleSynonyms(synonyms) {
+    if (synonyms.length > 0) {
+        const synonymsSection = document.createElement('section');
+        synonymsSection.classList.add('synonyms');
+        synonymsSection.innerHTML = `
+            <span class="synonyms__label">Synonyms</span>
+            <h2 class="synonyms__text">${synonyms.join(', ')}</h2>
+        `;
+        document.querySelector('.meaning').appendChild(synonymsSection);
+    }
+}
