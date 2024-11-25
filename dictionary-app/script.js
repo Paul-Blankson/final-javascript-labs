@@ -69,7 +69,7 @@ searchForm.addEventListener('submit', async (e) => {
         displayWordData(data[0]);
 
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 });
 
@@ -94,7 +94,7 @@ function handleAudio(phonetics) {
 }
 
 function handleMeanings(meanings) {
-    const meaningsContainer = document.querySelector('.meaning');
+    const meaningsContainer = document.getElementById('meanings-container');
     meaningsContainer.innerHTML = '';
 
     meanings.forEach(meaning => {
