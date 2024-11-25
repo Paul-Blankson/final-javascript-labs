@@ -51,7 +51,7 @@ searchForm.addEventListener('submit', async (e) => {
     const searchTerm = searchInput.value.trim();
     
     if (!searchTerm) {
-        console.log("Whoops, can't be empty…");
+        displayError("Whoops, can't be empty…");
         return;
     }
 
@@ -68,7 +68,6 @@ searchForm.addEventListener('submit', async (e) => {
         }
 
         const data = await response.json();
-        console.log(data);
         displayWordData(data[0]);
 
     } catch (error) {
@@ -143,4 +142,19 @@ function handleSource(sourceUrls) {
         footerElement.style.display = 'none';
         sourceElement.style.display = 'none';
     }
+}
+
+function displayError(message) {
+    const errorElement = document.createElement('div');
+    const inputField = document.querySelector('.search__input');
+
+    inputField.classList.add('search__input-error');
+
+    inputField.style.border = '1.5px solid var(--color-custom-red)';
+    errorElement.classList.add('error-message');
+    errorElement.textContent = message;
+
+    const wordSection = document.querySelector('.word');
+    wordSection.innerHTML = '';
+    wordSection.appendChild(errorElement);
 }
