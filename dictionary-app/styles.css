@@ -41,7 +41,7 @@
 }
 
 body {
-  font-family: inter, sans-serif;
+  font-family: 'inter', sans-serif;
   background-color: var(--color-white);
   color: var(--color-text-black);
   display: flex;
@@ -52,7 +52,6 @@ body {
   max-width: 375px;
   padding: 1.5rem;
   margin: 0 auto;
-  font-family: "inter";
   overflow-x: hidden;
 }
 
@@ -148,7 +147,6 @@ input:checked + .header__theme-button::before {
   background-color: var(--color-almost-white);
   border: none;
   border-radius: 1rem;
-  font-family: "inter", "lora", "inconsolata", sans-serif;
   font-size: 1rem;
   font-weight: bold;
   color: var(--color-text-black);
@@ -166,7 +164,6 @@ input:checked + .header__theme-button::before {
 .search__error-message {
     color: var(--color-custom-red);
     font-size: 1rem;
-    font-family: 'inter';
     font-weight: 300;
     margin-top: 0.5rem;
     display: none;
@@ -200,7 +197,6 @@ input:checked + .header__theme-button::before {
   font-size: 2rem;
   font-weight: 900;
   text-align: left;
-  font-family: "inter", "lora", "inconsolata", sans-serif;
 }
 
 .word__phonetic {
@@ -260,7 +256,6 @@ input:checked + .header__theme-button::before {
 .meaning__part-of-speech {
   font-style: italic;
   font-size: 1.125rem;
-  font-family: "inter", "lora", "inconsolata", sans-serif;
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
@@ -277,7 +272,6 @@ input:checked + .header__theme-button::before {
 .meaning__label {
   color: var(--color-deep-ash);
   font-size: 1rem;
-  font-family: "inter", "lora", "inconsolata", sans-serif;
   font-weight: 400;
   margin-bottom: 1rem;
 }
@@ -294,7 +288,6 @@ input:checked + .header__theme-button::before {
 .meaning__item {
   margin-bottom: 0.8125rem;
   line-height: 1.5;
-  font-family: "inter", "lora", "inconsolata", sans-serif;
 }
 
 /* synonyms block */
@@ -310,14 +303,12 @@ input:checked + .header__theme-button::before {
 .synonyms__label {
   color: var(--color-deep-ash);
   font-size: 1rem;
-  font-family: "inter", "lora", "inconsolata", sans-serif;
   font-weight: 400;
   font-style: italic;
 }
 
 .synonyms__text {
   font-size: 1.125rem;
-  font-family: "inter", "lora", "inconsolata", sans-serif;
   font-weight: 800;
   color: var(--color-thistle);
 }
@@ -338,7 +329,6 @@ input:checked + .header__theme-button::before {
 .verb__label {
   font-style: italic;
   font-size: 1.125rem;
-  font-family: "inter", "lora", "inconsolata", sans-serif;
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
@@ -365,12 +355,10 @@ input:checked + .header__theme-button::before {
 .verb__item {
   margin-bottom: 0.8125rem;
   line-height: 1.5;
-  font-family: "inter", "lora", "inconsolata", sans-serif;
 }
 
 .example__verb {
   font-size: 0.9375rem;
-  font-family: "inter", "lora", "inconsolata", sans-serif;
   font-weight: 300;
   color: var(--color-text-black);
   line-height: 1.5;
@@ -389,7 +377,6 @@ input:checked + .header__theme-button::before {
   color: var(--color-deep-ash);
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
-  font-family: "inter", "lora", "inconsolata", sans-serif;
   font-weight: 400;
   text-decoration: underline;
   text-decoration-color: var(--color-deep-ash);
