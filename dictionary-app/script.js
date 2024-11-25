@@ -57,8 +57,6 @@ searchForm.addEventListener('submit', async (e) => {
 
     try {
         // Show loading state later
-        searchInput.classList.remove('error');
-        errorMessage.style.display = 'none';
         
         // Fetch word data
         const response = await fetch(`${API_URL}${encodeURIComponent(searchTerm)}`);
@@ -147,14 +145,18 @@ function handleSource(sourceUrls) {
 function displayError(message) {
     const errorElement = document.createElement('div');
     const inputField = document.querySelector('.search__input');
+    const wordSection = document.querySelector('.word');
 
-    inputField.classList.add('search__input-error');
+    if (inputField) {
+        inputField.classList.add('search__input-error');
+        inputField.style.border = '1.5px solid var(--color-custom-red)';
+    }
 
-    inputField.style.border = '1.5px solid var(--color-custom-red)';
     errorElement.classList.add('error-message');
     errorElement.textContent = message;
 
-    const wordSection = document.querySelector('.word');
-    wordSection.innerHTML = '';
-    wordSection.appendChild(errorElement);
+    if (wordSection) {
+        wordSection.innerHTML = '';
+        wordSection.appendChild(errorElement);
+    }
 }
