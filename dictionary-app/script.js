@@ -132,12 +132,15 @@ function handleSynonyms(synonyms) {
 }
 
 function handleSource(sourceUrls) {
+    footerElement = document.querySelector('.source');
     const sourceElement = document.querySelector('.source__link');
     if (sourceUrls && sourceUrls.length > 0) {
         sourceElement.href = sourceUrls[0];
         sourceElement.textContent = sourceUrls[0];
+        footerElement.style.display = 'block';
         sourceElement.style.display = 'inline-flex';
     } else {
+        footerElement.style.display = 'none';
         sourceElement.style.display = 'none';
     }
 }
