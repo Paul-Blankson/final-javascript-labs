@@ -87,7 +87,7 @@ function handleAudio(phonetics) {
     const audioSource = phonetics.find(phonetic => phonetic.audio)?.audio;
     if (audioSource) {
         audioElement.onclick = () => new Audio(audioSource).play();
-        audioElement.style.display = 'block';
+        audioElement.style.display = 'flex';
     } else {
         audioElement.style.display = 'none';
     }
