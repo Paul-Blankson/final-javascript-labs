@@ -69,6 +69,7 @@ searchForm.addEventListener('submit', async (e) => {
 
         const data = await response.json();
         console.log(data);
+        displayWordData(data[0]);
 
     } catch (error) {
         console.log(error);
@@ -80,6 +81,7 @@ function displayWordData(wordData) {
     document.querySelector('.word__phonetic').textContent = wordData.phonetic || '';
 
     handleAudio(wordData.phonetics);
+    handleMeanings(wordData.meanings);
 }
 
 function handleAudio(phonetics) {
@@ -91,4 +93,27 @@ function handleAudio(phonetics) {
     } else {
         audioElement.style.display = 'none';
     }
+}
+
+function handleMeanings(meanings) {
+    const meaningsContainer = document.querySelector('.meaning');
+    meaningsContainer.innerHTML = '';
+
+    meanings.forEach(meaning => {
+        const meaningSection = document.createElement('section');
+        meaningSection.classList.add('meaning');
+        meaningSection.innerHTML = `
+            <h2 class="meaning__part-of-speech">${meaning.partOfSpeech}</h2>
+            <p class="meaning__label">Meaning</p>
+            <ul class="meaning__list">
+                ${meaning.definitions.map(def => `
+                    <li class="meaning__item">${def.definition}</li>
+                    ${def.example ? `<span class="example__verb">"${def.example}"</span>` : ''}
+                `).join('')}
+            </ul>
+        `;
+        meaningsContainer.appendChild(meaningSection);
+
+        handleSynonyms(meaning.synonyms);
+    });
 }
