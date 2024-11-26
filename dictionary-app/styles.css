@@ -45,7 +45,7 @@ body {
   background-color: var(--color-white);
   color: var(--color-text-black);
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
@@ -242,6 +242,82 @@ input:checked + .header__theme-button::before {
   opacity: 1;
 }
 
+.skeleton {
+  display: none;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.skeleton__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.skeleton__title {
+  width: 50%;
+  height: 2rem;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton__phonetic {
+  width: 30%;
+  height: 1rem;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+}
+
+.skeleton__play-button {
+  width: 3rem;
+  height: 3rem;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+}
+
+.skeleton__audio-icon {
+  display: none;
+}
+
+.skeleton__content {
+  margin-top: 1rem;
+}
+
+.skeleton__line {
+  height: 1rem;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.skeleton__line:nth-child(2) {
+  width: 90%;
+}
+
+.skeleton__line:nth-child(3) {
+  width: 80%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.skeleton--loading .skeleton__title,
+.skeleton--loading .skeleton__phonetic,
+.skeleton--loading .skeleton__play-button,
+.skeleton--loading .skeleton__line {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
 /* Meaning Block */
 .meaning {
   margin-bottom: 2rem;
@@ -427,6 +503,29 @@ input:checked + .header__theme-button::before {
   .word__play-button {
     width: 75px;
     height: 75px;
+  }
+
+  .skeleton {
+    max-width: 736px;
+    margin: 2rem auto;
+  }
+
+  .skeleton__title {
+    height: 2.5rem;
+  }
+
+  .skeleton__phonetic {
+    height: 1.25rem;
+  }
+
+  .skeleton__play-button {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .skeleton__line {
+    height: 1.25rem;
+    margin-bottom: 1rem;
   }
 
   .meaning__part-of-speech,
