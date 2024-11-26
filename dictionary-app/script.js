@@ -43,6 +43,8 @@ const API_URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 const searchForm = document.getElementById('searchForm');
 const searchInput = document.getElementById('searchInput');
 const errorMessage = document.getElementById('errorMessage');
+const loadingSkeleton = document.getElementById('loadingSkeleton');
+const wordSection = document.querySelector('.word');
 
 // Search form functionality
 searchForm.addEventListener('submit', async (e) => {
@@ -56,8 +58,8 @@ searchForm.addEventListener('submit', async (e) => {
     }
 
     try {
-        // Show loading state later
-        
+
+        showLoadingSkeleton();
         // Fetch word data
         const response = await fetch(`${API_URL}${encodeURIComponent(searchTerm)}`);
         
@@ -70,7 +72,9 @@ searchForm.addEventListener('submit', async (e) => {
 
     } catch (error) {
         console.error(error);
-    }
+    } finally {
+        hideLoadingSkeleton();
+      }
 });
 
 function displayWordData(wordData) {
@@ -160,3 +164,15 @@ function displayError(message) {
         wordSection.appendChild(errorElement);
     }
 }
+
+function showLoadingSkeleton() {
+    loadingSkeleton.style.display = 'block';
+    loadingSkeleton.classList.add('skeleton--loading');
+    wordSection.style.display = 'none';
+  }
+  
+  function hideLoadingSkeleton() {
+    loadingSkeleton.style.display = 'none';
+    loadingSkeleton.classList.remove('skeleton--loading');
+    wordSection.style.display = 'block';
+  }
