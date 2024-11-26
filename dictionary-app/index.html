@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dictionary</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <img src="./assets/images/logo.svg" alt="logo" class="header__logo" />
+
+      <div class="header__controls">
+        <div class="header__font-select">
+          <select id="fontSelect" class="header__font-dropdown">
+            <option value="sans">Sans Serif</option>
+            <option value="serif">Serif</option>
+            <option value="mono">Mono</option>
+          </select>
+        </div>
+
+        <div class="header__theme-toggle">
+          <input
+            type="checkbox"
+            id="themeToggle"
+            class="header__theme-checkbox"
+          />
+          <label
+            class="header__theme-button"
+            for="themeToggle"
+            aria-label="Toggle dark mode"
+          ></label>
+          <img
+            src="./assets/images/icon-moon.svg"
+            alt="moon icon"
+            class="header__theme-moon-icon"
+          />
+        </div>
+      </div>
+    </header>
+
+    <section class="search">
+      <form class="search__form" id="searchForm">
+        <input
+          type="text"
+          class="search__input"
+          id="searchInput"
+          placeholder="Search for any word..."
+        />
+        <button type="submit" class="search__button">
+          <img src="./assets/images/icon-search.svg" alt="Search" />
+        </button>
+      </form>
+    </section>
+
+    <section class="word">
+      <div class="word__header">
+        <div>
+          <h1 class="word__title"></h1>
+          <p class="word__phonetic"></p>
+        </div>
+        <button class="word__play-button" aria-label="Play pronunciation">
+          <img
+            src="./assets/images/icon-play.svg"
+            alt="play icon"
+            class="word__audio-icon"
+          />
+          <img
+            class="word__audio-icon"
+            src="./assets/images/icon-play-hovered.svg"
+            alt="icon-play-hovered"
+          />
+        </button>
+      </div>
+    </section>
+
+    <section class="not__found">
+      <div class="not__found--emoji">
+        <img src="./assets/images/emoji-sad.png" alt="sad emoji" />
+      </div>
+      <h2 class="not__found--title">No Definitions Found</h2>
+      <p class="not__found--description">
+        Sorry pal, we couldn't find definitions for the word you were looking
+        for. You can try the search again at later time or head to the web
+        instead.
+      </p>
+    </section>
+
+    <section class="skeleton" id="loadingSkeleton">
+      <div class="skeleton__header">
+        <div>
+          <div class="skeleton__title"></div>
+          <div class="skeleton__phonetic"></div>
+        </div>
+        <div
+          class="skeleton__play-button"
+          aria-label="Play pronunciation loader"
+        >
+          <div class="skeleton__audio-icon"></div>
+        </div>
+      </div>
+      <div class="skeleton__content">
+        <div class="skeleton__line"></div>
+        <div class="skeleton__line"></div>
+        <div class="skeleton__line"></div>
+      </div>
+    </section>
+
+    <div id="meanings-container"></div>
+
+    <!-- Synonyms will be dynamically inserted here -->
+
+    <footer class="source">
+      <p class="source__label">Source</p>
+      <a href="" class="source__link" target="_blank" rel="noopener noreferrer">
+        <img
+          src="./assets/images/icon-new-window.svg"
+          alt="External link"
+          class="external__link--icon-new-window"
+        />
+      </a>
+    </footer>
+  </body>
+</html>
