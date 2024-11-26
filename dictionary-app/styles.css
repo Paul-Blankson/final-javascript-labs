@@ -470,6 +470,31 @@ input:checked + .header__theme-button::before {
   transition: 0.3s ease;
 }
 
+.not__found {
+  display: none;
+  text-align: center;
+  max-width: 100%;
+}
+
+.not__found--emoji img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 2.75rem;
+}
+
+.not__found--title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-black);
+}
+
+.not__found--description {
+  font-size: 1.125rem;
+  text-align: center;
+  color: var(--color-deep-ash);
+}
+
 /* Tablet Styles */
 @media screen and (min-width: 768px) {
   body {
